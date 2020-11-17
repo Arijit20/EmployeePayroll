@@ -1,6 +1,4 @@
 class EmployeePayrollData{
-    name;
-
 
    constructor(...params){
         this.name = params[0];
@@ -11,12 +9,6 @@ class EmployeePayrollData{
         this.startDate = params[5];
         this.note = params[6];
     }
-
-  /*  get id(){return this._id;}
-    set id(id){
-        if(id > 0) this._id = id;
-        else throw "Invalid id";
-    }*/
 
     get name(){return this._name;}
     set name(name){
@@ -39,9 +31,8 @@ class EmployeePayrollData{
 
     get startDate(){return this._startDate;}
     set startDate(startDate){
-       // if(startDate <= new Date())this._startDate = startDate;
-       // else throw "Enter valid date";
-       this._startDate = startDate;
+        if(startDate <= new Date())this._startDate = startDate;
+        else throw "Enter valid date";
     }
 
     get note(){return this._note;}
@@ -51,6 +42,6 @@ class EmployeePayrollData{
         const options ={ year : "numeric", month : "long", day : "numeric"};
         const empDate = this.startDate === undefined ? "undefined" :
                        this.startDate.toLocaleDateString("en-US", options);
-       return "name = "+ this.name + " gender = "+ this.gender +" department = "+ this.department + " salary = "+ this.salary;
+       return "name = "+ this.name + " gender = "+ this.gender +" department = "+ this.department + " salary = "+ this.salary+ " startDate= "+ this.startDate;
     }
 }

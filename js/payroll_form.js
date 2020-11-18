@@ -31,13 +31,12 @@ startDate.addEventListener("input", async function(){
    try{
      (new EmployeePayrollData()).startDate = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
     dateError.textContent = "";
-    console.log(day, month, year);
   }catch(e){
     dateError.textContent = "Invalid Date";
   }
 });
-
 });
+
 function save(){
   let employee = new EmployeePayrollData();
   employee.name= document.getElementById("name").value;

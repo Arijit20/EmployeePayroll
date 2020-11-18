@@ -23,16 +23,16 @@ name.addEventListener('input', function(){
 });
 
 const startDate = document.querySelector("#startDate");
-const day = document.getElementById("day").value;
-const month = document.getElementById("month").value;
-const year = document.getElementById("year").value;
+const day = document.querySelector("#day");
+const month = document.querySelector("#month");
+const year = document.querySelector("#year");
 const dateError = document.querySelector(".date-error");
 startDate.addEventListener("input", async function(){
    try{
-     (new EmployeePayrollData()).startDate = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+   new EmployeePayrollData().startDate = new Date( Date.UTC(year.value, month.value - 1, day.value));
     dateError.textContent = "";
   }catch(e){
-    dateError.textContent = "Invalid Date";
+    dateError.textContent = e;
   }
 });
 });

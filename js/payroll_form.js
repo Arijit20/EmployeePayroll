@@ -67,7 +67,5 @@ function saveData(){
  var year = document.getElementById("year").value;
   employee.note = document.getElementById("notes").value;
   employee.startDate = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
-
- createAndUpdateStorage(employee);
- alert("Thank you. your data is saved " + employee.toString());
+return employee;
 }
